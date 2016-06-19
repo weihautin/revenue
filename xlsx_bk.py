@@ -5,6 +5,10 @@
 用記事本移除頭尾
 另外儲存UTF-8
 
+vi 搜尋到的行 整行刪除
+:g/[要搜尋的字串]/d
+刪除F 相關大陸股票
+
 
 @author: tim
 """
@@ -60,6 +64,7 @@ def cumulative_revenues(co_id, yearmonth, year, month):
     optionUrl = r.url
     html = urllib.urlopen(optionUrl)  #open file-like object
     regexp = re.compile(r"<TD class='even' style='text-align:right !important;'>&nbsp;(?P<file>.*)</TD></TR>")
+    print r.url
 
     i = 0 #只抓第四筆符合資料
     for line in html.readlines():
@@ -72,7 +77,7 @@ def cumulative_revenues(co_id, yearmonth, year, month):
 			
         if i==4:
             this_year_cumulative_revenues= money.split()
-            time.sleep(15)
+            time.sleep(20)
             return (last_year_revenues,this_year_cumulative_revenues)
             
 
@@ -110,7 +115,7 @@ if __name__ == "__main__":
         i=1
         for row in spamreader:
             if row[1][0] == 'F':
-                time.sleep(15)
+                time.sleep(20)
                 pass
             else:
                 price = cumulative_revenues(row[0],'10505','105','05')
