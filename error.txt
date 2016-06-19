@@ -1,0 +1,21 @@
+ 
+3685 政翔
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python2.7/dist-packages/spyderlib/widgets/externalshell/sitecustomize.py", line 540, in runfile
+    execfile(filename, namespace)
+  File "/home/tim/revenue/xlsx_ots.py", line 121, in <module>
+    price = cumulative_revenues(row[0],'10505','105','05')
+  File "/home/tim/revenue/xlsx_ots.py", line 44, in cumulative_revenues
+    r=requests.post("http://mops.twse.com.tw/mops/web/t05st10_ifrs")
+  File "/usr/lib/python2.7/dist-packages/requests/api.py", line 88, in post
+    return request('post', url, data=data, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 455, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 558, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 378, in send
+    raise ConnectionError(e)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='mops.twse.com.tw', port=80): Max retries exceeded with url: /mops/web/t05st10_ifrs (Caused by <class 'socket.error'>: [Errno 101] Network is unreachable)
